@@ -9,6 +9,7 @@ import com.example.demo.repository.CarrinhoRepository;
 import com.example.demo.repository.PedidoRepository;
 import com.example.demo.repository.UsuarioRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -86,6 +87,7 @@ class PedidoServiceTest {
     }
 
     @Test
+    @DisplayName("Realiza o pedido e salva no banco")
     void realizarPedido_DeveSalvarPedidoCorretamente() {
         when(usuarioRepository.findUsuarioByEmail(usuarioCarrinhoCheio.getEmail())).thenReturn(Optional.of(usuarioCarrinhoCheio));
 
@@ -113,6 +115,7 @@ class PedidoServiceTest {
     }
 
     @Test
+    @DisplayName("Lança exceção quando o carrinho está vazio e tentam realizar pedido")
     void realizarPedido_DeveRetornarExcecaoSeCarrinhoEstiverVazio() {
 
         when(usuarioRepository.findUsuarioByEmail(usuarioCarrinhoVazio.getEmail())).thenReturn(Optional.of(usuarioCarrinhoVazio));

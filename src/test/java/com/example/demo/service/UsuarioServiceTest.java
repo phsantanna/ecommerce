@@ -7,6 +7,7 @@ import com.example.demo.enums.Roles;
 import com.example.demo.repository.UsuarioRepository;
 import org.hibernate.Interceptor;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -45,9 +46,10 @@ class UsuarioServiceTest {
     }
 
     @Test
+    @DisplayName("Realiza o cadastro do usuário e salva no banco")
     void realizaOCadastroDoUsuarioNoBanco_DeveSalvarUsuarioComSenhaCriptografada() {
 
-        String senhaCriptografada = "senha_criptografada_mock";
+        String senhaCriptografada = "criptografada";
         when(passwordEncoder.encode("123456")).thenReturn(senhaCriptografada);
 
 
