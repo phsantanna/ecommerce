@@ -1,6 +1,5 @@
-package com.example.demo.infra;
+package com.example.demo.infra.security;
 
-import com.example.demo.infra.security.SecurityFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
