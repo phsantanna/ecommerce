@@ -29,12 +29,12 @@ public class SecurityConfig {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/auth/login").permitAll()
-                        .requestMatchers("/usuarios/registrar").permitAll()
-                        .requestMatchers("/pedido/realizar").hasRole("USER")
-                        .requestMatchers("/meus-pedidos").hasRole("USER")
-                        .requestMatchers("/produtos/banco/inserir").hasRole("ADMIN")
-                        .requestMatchers("/carrinho/exibir").hasRole("USER")
-                        .requestMatchers("/carrinho/inserir").hasRole("ADMIN"))
+                        .requestMatchers("/registrar").permitAll()
+                        .requestMatchers("/pedidos/").hasRole("USER")
+                        .requestMatchers("/pedidos/").hasRole("USER")
+                        .requestMatchers("/produtos/").hasRole("ADMIN")
+                        .requestMatchers("/carrinho/").hasRole("USER")
+                        .requestMatchers("/carrinho/").hasRole("ADMIN"))
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }

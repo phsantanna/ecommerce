@@ -25,7 +25,7 @@ public class PedidoController {
         this.pedidoService = pedidoService;
     }
 
-    @PostMapping("/pedido/realizar")
+    @PostMapping("/pedidos/")
     @Operation(summary = "realiza o pedido do usuario", description = "metodo que realiza o pedido")
     @ApiResponse(responseCode = "200", description = "pedido realizado com sucesso")
     @ApiResponse(responseCode = "400", description = "pedido não realizado")
@@ -40,7 +40,7 @@ public class PedidoController {
         return ResponseEntity.created(uri).body(pedido);
     }
 
-    @GetMapping("/meus-pedidos")
+    @GetMapping("/pedidos/")
     @Operation(summary = "Lista todos os pedidos do usuário autenticado", description = "Retorna uma lista com todos os pedidos feitos pelo usuário que está logado.")
     @ApiResponse(responseCode = "200", description = "Busca realizada com sucesso.")
     public ResponseEntity<List<PedidoResponseDto>> exibirPedidos(@RequestBody ListaPedidosRequestDto emailUsuario) {

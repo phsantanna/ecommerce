@@ -23,7 +23,7 @@ public class ProdutoController {
         this.produtoService = produtoService;
     }
 
-    @PostMapping("/produtos/banco/inserir")
+    @PostMapping("/produtos/")
     public ResponseEntity<ItemResponseDto> inserirItemNoBanco(@RequestBody ItemRequestDto itemRequestDto) {
 
         ItemResponseDto produtos = produtoService.inserirProdutoNoBanco(itemRequestDto);

@@ -1,9 +1,5 @@
-package com.example.demo.infra.security;
+package com.example.demo.exceptions;
 
-import com.example.demo.exceptions.CarrinhoNaoEncontradoException;
-import com.example.demo.exceptions.CarrinhoVazioException;
-import com.example.demo.exceptions.ProdutoNaoEncontradoException;
-import com.example.demo.exceptions.UsuarioNaoEncontradoException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

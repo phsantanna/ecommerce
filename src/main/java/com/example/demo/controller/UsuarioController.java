@@ -25,7 +25,7 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    @PostMapping("/usuarios/registrar")
+    @PostMapping("/registrar")
     @ApiResponse(responseCode = "200", description = "Cadastra um novo usuario")
     public ResponseEntity<UsuarioResponseDto> novoUsuario(@RequestBody UsuarioRequestDto usuarioRequestDto) {
 

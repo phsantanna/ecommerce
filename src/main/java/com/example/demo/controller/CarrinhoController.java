@@ -18,13 +18,13 @@ public class CarrinhoController {
         this.carrinhoService = carrinhoService;
     }
 
-    @GetMapping("/carrinho/exibir")
+    @GetMapping("/carrinho/")
     public ResponseEntity<CarrinhoResponseDto> exibirCarrinho(@RequestBody EmailRequestDto emailRequestDto) {
         CarrinhoResponseDto carrinhoResponseDto = carrinhoService.verCarrinhoUsuario(emailRequestDto);
         return ResponseEntity.ok(carrinhoResponseDto);
     }
 
-    @PostMapping("/carrinho/inserir")
+    @PostMapping("/carrinho/")
     public ResponseEntity<CarrinhoResponseDto> inserirItemNoCarrinho(@RequestBody InserirItemRequestDto inserirItemRequestDto) {
 
         CarrinhoResponseDto carrinhoResponseDto = carrinhoService.inserirItemNoCarrinho(inserirItemRequestDto);
