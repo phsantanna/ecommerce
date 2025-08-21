@@ -30,11 +30,10 @@ public class UsuarioController {
     public ResponseEntity<UsuarioResponseDto> novoUsuario(@RequestBody UsuarioRequestDto usuarioRequestDto) {
 
         UsuarioResponseDto usuarioResponseDto = usuarioService.CadastroUsuario(usuarioRequestDto);
-
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest() // Pega a URL da requisição atual (/usuarios)
-                .path("/{id}") // Adiciona o path com uma variável (/usuarios/{id})
-                .buildAndExpand(usuarioResponseDto.id()) // Substitui {id} pelo ID do usuário salvo
-                .toUri(); // Converte para um objeto URI
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(usuarioResponseDto.id())
+                .toUri();
         return ResponseEntity.created(uri).body(usuarioResponseDto);
     }
 }
