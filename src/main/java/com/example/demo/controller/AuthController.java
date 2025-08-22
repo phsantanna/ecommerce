@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dtos.AuthDto;
 import com.example.demo.entities.Usuario;
 import com.example.demo.infra.security.TokenService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,7 +25,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody AuthDto authDto) {
+    public ResponseEntity<String> login(@RequestBody @Valid AuthDto authDto) {
         var usernamePassword = new UsernamePasswordAuthenticationToken(authDto.email(), authDto.senha());
         var auth = this.authenticationManager.authenticate(usernamePassword);
         var token = tokenService.generateToken((Usuario) auth.getPrincipal());

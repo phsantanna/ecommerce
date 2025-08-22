@@ -7,6 +7,8 @@ import com.example.demo.service.PedidoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -25,11 +27,12 @@ public class PedidoController {
         this.pedidoService = pedidoService;
     }
 
+    @Transactional
     @PostMapping("/pedidos/")
     @Operation(summary = "realiza o pedido do usuario", description = "metodo que realiza o pedido")
     @ApiResponse(responseCode = "200", description = "pedido realizado com sucesso")
     @ApiResponse(responseCode = "400", description = "pedido não realizado")
-    public ResponseEntity<PedidoResponseDto> realizarPedido(@RequestBody PedidoRequestDto pedidoRequestDto) {
+    public ResponseEntity<PedidoResponseDto> realizarPedido(@RequestBody @Valid PedidoRequestDto pedidoRequestDto) {
 
         PedidoResponseDto pedido = pedidoService.realizarPedido(pedidoRequestDto);
 
@@ -40,10 +43,11 @@ public class PedidoController {
         return ResponseEntity.created(uri).body(pedido);
     }
 
+    @Transactional
     @GetMapping("/pedidos/")
     @Operation(summary = "Lista todos os pedidos do usuário autenticado", description = "Retorna uma lista com todos os pedidos feitos pelo usuário que está logado.")
     @ApiResponse(responseCode = "200", description = "Busca realizada com sucesso.")
-    public ResponseEntity<List<PedidoResponseDto>> exibirPedidos(@RequestBody ListaPedidosRequestDto emailUsuario) {
+    public ResponseEntity<List<PedidoResponseDto>> exibirPedidos(@RequestBody @Valid ListaPedidosRequestDto emailUsuario) {
 
         List<PedidoResponseDto> pedidoResponseDto = pedidoService.listarTodosPedidosUsuario(emailUsuario);
 

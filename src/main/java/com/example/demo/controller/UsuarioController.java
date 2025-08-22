@@ -5,6 +5,8 @@ import com.example.demo.dtos.UsuarioResponseDto;
 import com.example.demo.service.UsuarioService;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,9 +27,10 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
+    @Transactional
     @PostMapping("/registrar")
     @ApiResponse(responseCode = "200", description = "Cadastra um novo usuario")
-    public ResponseEntity<UsuarioResponseDto> novoUsuario(@RequestBody UsuarioRequestDto usuarioRequestDto) {
+    public ResponseEntity<UsuarioResponseDto> novoUsuario(@RequestBody @Valid UsuarioRequestDto usuarioRequestDto) {
 
         UsuarioResponseDto usuarioResponseDto = usuarioService.CadastroUsuario(usuarioRequestDto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()

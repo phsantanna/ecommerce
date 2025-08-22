@@ -4,6 +4,8 @@ package com.example.demo.controller;
 import com.example.demo.dtos.ItemRequestDto;
 import com.example.demo.dtos.ItemResponseDto;
 import com.example.demo.service.ProdutoService;
+import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,8 +25,9 @@ public class ProdutoController {
         this.produtoService = produtoService;
     }
 
+    @Transactional
     @PostMapping("/produtos/")
-    public ResponseEntity<ItemResponseDto> inserirItemNoBanco(@RequestBody ItemRequestDto itemRequestDto) {
+    public ResponseEntity<ItemResponseDto> inserirItemNoBanco(@RequestBody @Valid ItemRequestDto itemRequestDto) {
 
         ItemResponseDto produtos = produtoService.inserirProdutoNoBanco(itemRequestDto);
 
