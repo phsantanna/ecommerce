@@ -52,7 +52,6 @@ class CarrinhoServiceTest {
 
     @BeforeEach
     void setUp() {
-        // Configuração inicial executada antes de cada teste
         usuario = new Usuario(1L, "teste@gmail.com", "senha123");
         carrinho = new Carrinho();
         carrinho.setCarrinhoId(10L);
