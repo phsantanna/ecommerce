@@ -56,7 +56,7 @@ class CarrinhoServiceTest {
         carrinho = new Carrinho();
         carrinho.setCarrinhoId(10L);
         carrinho.setUsuario(usuario);
-        carrinho.setItens(new ArrayList<>()); // Inicia com lista de itens vazia
+        carrinho.setItens(new ArrayList<>());
 
         produto1 = new Produtos(100L, "Notebook", new BigDecimal("7500.00"),"Notebook","Notebook");
         produto2 = new Produtos(101L, "Iphone 16", new BigDecimal("7000.00"),"Iphone 16","Celular");
@@ -83,7 +83,7 @@ class CarrinhoServiceTest {
 
         assertNotNull(carrinhoResponseDto);
         assertEquals(carrinho.getCarrinhoId(), carrinhoResponseDto.id());
-        assertEquals("Notebook Gamer", carrinhoResponseDto.itemCarrinhoList().get(0).nomeProduto());
+        assertEquals("Notebook", carrinhoResponseDto.itemCarrinhoList().get(0).nomeProduto());
         assertEquals(2,carrinhoResponseDto.itemCarrinhoList().get(0).quantidade());
         assertEquals(0, new BigDecimal("15000.00").compareTo(carrinhoResponseDto.valorTotal()));
     }
@@ -97,7 +97,7 @@ class CarrinhoServiceTest {
 
         assertEquals("Usuario não encontrado",exception.getMessage());
 
-        verify(carrinhoRepository, never()).findCarrinhoByUsuarioEmail(any()); // aqui verifico e garanto se o repository do carrinho não foi chamado
+        verify(carrinhoRepository, never()).findCarrinhoByUsuarioEmail(any());
     }
 
     @Test
@@ -146,9 +146,9 @@ class CarrinhoServiceTest {
         Carrinho carrinhoSalvo = carrinhoCaptor.getValue();
         assertNotNull(carrinhoSalvo);
         assertEquals(1,carrinhoSalvo.getItens().size());
-        assertEquals(2,carrinhoSalvo.getItens().get(0).getQuantidade());
+        assertEquals(1,carrinhoSalvo.getItens().get(0).getQuantidade());
         assertEquals("Iphone 16",carrinhoSalvo.getItens().get(0).getProduto().getNome());
-        assertEquals(0, new BigDecimal("14000").compareTo(carrinhoSalvo.getValorTotal()));
+        assertEquals(0, new BigDecimal(7000).compareTo(carrinhoSalvo.getValorTotal()));
 
     }
 

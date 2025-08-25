@@ -90,6 +90,7 @@ class PedidoServiceTest {
     @DisplayName("Realiza o pedido e salva no banco")
     void realizarPedido_DeveSalvarPedidoCorretamente() {
         when(usuarioRepository.findUsuarioByEmail(usuarioCarrinhoCheio.getEmail())).thenReturn(Optional.of(usuarioCarrinhoCheio));
+        when(carrinhoRepository.findCarrinhoByUsuario(usuarioCarrinhoCheio)).thenReturn(Optional.of(carrinhoCheio));
 
         when(pedidoRepository.save(any(Pedido.class))).thenAnswer(invocation -> {
             Pedido pedidoParaSalvar = invocation.getArgument(0);
