@@ -1,6 +1,6 @@
 package com.ecommerce.controller.dto;
 
-import com.ecommerce.entity.Carrinho;
+import com.ecommerce.model.Carrinho;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -23,5 +23,5 @@ public record UsuarioDtoResponse(
         String telefone,
         @NotBlank
         String celular,
-        Carrinho carrinho) {
+        CarrinhoDtoResponse carrinho) {
 }

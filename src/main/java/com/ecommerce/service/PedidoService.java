@@ -2,8 +2,8 @@ package com.ecommerce.service;
 
 import com.ecommerce.controller.dto.PedidoRequestDto;
 import com.ecommerce.controller.dto.PedidoResponseDto;
-import com.ecommerce.entity.*;
-import com.ecommerce.entity.mappers.PedidoMapper;
+import com.ecommerce.model.*;
+import com.ecommerce.model.mappers.PedidoMapper;
 import com.ecommerce.enums.CarrinhoErroTipo;
 import com.ecommerce.enums.StatusPedido;
 import com.ecommerce.enums.UsuarioErroTipo;

@@ -1,12 +1,10 @@
-package com.ecommerce.entity.mappers;
+package com.ecommerce.model.mappers;
 
 import com.ecommerce.controller.dto.ProdutoDtoRequest;
 import com.ecommerce.controller.dto.ProdutoDtoResponse;
-import com.ecommerce.entity.Produto;
+import com.ecommerce.model.Produto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-
-import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface ProdutoMapper {

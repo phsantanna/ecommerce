@@ -2,12 +2,14 @@ package com.ecommerce.service;
 
 import com.ecommerce.controller.dto.UsuarioCadastroDtoRequest;
 import com.ecommerce.controller.dto.UsuarioDtoResponse;
-import com.ecommerce.entity.Usuario;
-import com.ecommerce.entity.mappers.UsuarioMapper;
+import com.ecommerce.model.Usuario;
+import com.ecommerce.model.mappers.UsuarioMapper;
 import com.ecommerce.enums.UsuarioErroTipo;
 import com.ecommerce.exceptions.UsuarioException;
 import com.ecommerce.repository.UsuarioRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -35,5 +37,10 @@ public class UsuarioService {
         usuario.setCarrinho(carrinhoService.criarCarrinho(usuario));
         usuarioRepository.save(usuario);
         return usuarioMapper.toDto(usuario);
+    }
+
+    public Page<UsuarioDtoResponse> findAll(Pageable pageable) {
+        Page<Usuario> usuarios = usuarioRepository.findAll(pageable);
+        return usuarios.map(usuarioMapper::toDto);
     }
 }

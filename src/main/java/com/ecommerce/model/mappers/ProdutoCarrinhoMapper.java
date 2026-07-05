@@ -1,8 +1,8 @@
-package com.ecommerce.entity.mappers;
+package com.ecommerce.model.mappers;
 
 import com.ecommerce.controller.dto.ProdutoCarrinhoDtoRequest;
 import com.ecommerce.controller.dto.ProdutoCarrinhoDtoResponse;
-import com.ecommerce.entity.ProdutoCarrinho;
+import com.ecommerce.model.ProdutoCarrinho;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

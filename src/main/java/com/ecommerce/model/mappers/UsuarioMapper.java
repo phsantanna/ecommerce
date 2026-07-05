@@ -1,8 +1,8 @@
-package com.ecommerce.entity.mappers;
+package com.ecommerce.model.mappers;
 
 import com.ecommerce.controller.dto.UsuarioCadastroDtoRequest;
 import com.ecommerce.controller.dto.UsuarioDtoResponse;
-import com.ecommerce.entity.Usuario;
+import com.ecommerce.model.Usuario;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -10,7 +10,7 @@ import org.mapstruct.MappingTarget;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = { CarrinhoMapper.class })
 public abstract class UsuarioMapper {
 
     @Autowired

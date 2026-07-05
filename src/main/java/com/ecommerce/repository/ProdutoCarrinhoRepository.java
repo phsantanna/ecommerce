@@ -1,6 +1,6 @@
 package com.ecommerce.repository;
 
-import com.ecommerce.entity.ProdutoCarrinho;
+import com.ecommerce.model.ProdutoCarrinho;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

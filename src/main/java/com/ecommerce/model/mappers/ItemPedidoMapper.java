@@ -1,9 +1,9 @@
-package com.ecommerce.entity.mappers;
+package com.ecommerce.model.mappers;
 
 import com.ecommerce.controller.dto.ItemPedidoDtoResponse;
 import com.ecommerce.controller.dto.ProdutoDtoResponse;
-import com.ecommerce.entity.ItemPedido;
-import com.ecommerce.entity.Produto;
+import com.ecommerce.model.ItemPedido;
+import com.ecommerce.model.Produto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

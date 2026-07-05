@@ -1,7 +1,8 @@
 package com.ecommerce.repository;
 
-import com.ecommerce.controller.dto.LoginRequestDto;
-import com.ecommerce.entity.Usuario;
+import com.ecommerce.model.Usuario;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
@@ -17,5 +18,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, UUID> {
 
    Optional<UserDetails> findByEmail(String email);
 
-    Optional<Usuario> findUsuarioById(UUID id);
+   Optional<Usuario> findUsuarioById(UUID id);
+
+   Page<Usuario> findAll(Pageable pageable);
 }

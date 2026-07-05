@@ -20,7 +20,7 @@ public class PedidoController implements GenericUriController{
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<List<PedidoResponseDto>> listarPedidos(@PathVariable UUID id) { // 🎯 Recebe UUID
+    public ResponseEntity<List<PedidoResponseDto>> listarPedidos(@PathVariable UUID id) {
 
         List<PedidoResponseDto> listaPedidosUsuario = pedidoService.listarPedidosUsuario(id);
 

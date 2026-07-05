@@ -1,10 +1,9 @@
 package com.ecommerce.service;
 
 import com.ecommerce.controller.dto.ProdutoDtoRequest;
-import com.ecommerce.entity.Produto;
-import com.ecommerce.entity.mappers.ProdutoMapper;
+import com.ecommerce.model.Produto;
+import com.ecommerce.model.mappers.ProdutoMapper;
 import com.ecommerce.enums.ProdutoErroTipo;
-import com.ecommerce.enums.StatusPedido;
 import com.ecommerce.exceptions.ProdutoException;
 import com.ecommerce.repository.ProdutoRepository;
 import org.springframework.stereotype.Service;

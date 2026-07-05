@@ -1,8 +1,8 @@
 package com.ecommerce.service;
 
-import com.ecommerce.entity.Carrinho;
-import com.ecommerce.entity.Produto;
-import com.ecommerce.entity.ProdutoCarrinho;
+import com.ecommerce.model.Carrinho;
+import com.ecommerce.model.Produto;
+import com.ecommerce.model.ProdutoCarrinho;
 import com.ecommerce.enums.ProdutoErroTipo;
 import com.ecommerce.exceptions.ProdutoException;
 import com.ecommerce.repository.ProdutoCarrinhoRepository;

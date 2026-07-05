@@ -6,7 +6,7 @@ import com.ecommerce.controller.dto.LoginRequestDto;
 import com.ecommerce.controller.dto.LoginResponseDto;
 import com.ecommerce.controller.dto.UsuarioCadastroDtoRequest;
 import com.ecommerce.controller.dto.UsuarioCadastroResponse;
-import com.ecommerce.entity.Usuario;
+import com.ecommerce.model.Usuario;
 import com.ecommerce.service.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;

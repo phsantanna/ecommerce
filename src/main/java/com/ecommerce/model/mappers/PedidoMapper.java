@@ -1,8 +1,8 @@
-package com.ecommerce.entity.mappers;
+package com.ecommerce.model.mappers;
 
 import com.ecommerce.controller.dto.PedidoRequestDto;
 import com.ecommerce.controller.dto.PedidoResponseDto;
-import com.ecommerce.entity.Pedido;
+import com.ecommerce.model.Pedido;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import java.util.List;

@@ -1,10 +1,11 @@
 package com.ecommerce.service;
 
-import com.ecommerce.controller.dto.UsuarioCadastroDtoRequest;
-import com.ecommerce.controller.dto.UsuarioDtoResponse;
-import com.ecommerce.entity.Carrinho;
-import com.ecommerce.entity.Usuario;
-import com.ecommerce.entity.mappers.UsuarioMapper;
+import com.ecommerce.controller.dto.*;
+import com.ecommerce.enums.Categoria;
+import com.ecommerce.model.Carrinho;
+import com.ecommerce.model.Produto;
+import com.ecommerce.model.Usuario;
+import com.ecommerce.model.mappers.UsuarioMapper;
 import com.ecommerce.enums.UsuarioErroTipo;
 import com.ecommerce.exceptions.UsuarioException;
 import com.ecommerce.repository.UsuarioRepository;
@@ -15,9 +16,13 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension; // Mudança aqui
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -35,6 +40,15 @@ class UsuarioServiceTest {
 
     @InjectMocks
     private UsuarioService usuarioService;
+
+    private CarrinhoDtoResponse criarCarrinhoDtoResponse() {
+        UUID idCarrinho = UUID.randomUUID();
+        List<ProdutoCarrinhoDtoResponse> produtoCarrinhoDtoResponse = new ArrayList<>();
+        return new CarrinhoDtoResponse(
+                idCarrinho,
+                produtoCarrinhoDtoResponse,
+                new BigDecimal(1000));
+    }
 
     private UsuarioCadastroDtoRequest criarRequest() {
         return new UsuarioCadastroDtoRequest(
@@ -62,7 +76,7 @@ class UsuarioServiceTest {
                 usuario.getEndereco(),
                 usuario.getTelefone(),
                 usuario.getCelular(),
-                usuario.getCarrinho()
+                criarCarrinhoDtoResponse()
         );
     }
 
